@@ -23,7 +23,7 @@ botoesNumero.forEach((botao) => {
 })
 
 botoesOperadores.forEach((botao) => {
-    botao.addEventListener("click", function(){
+    botao.addEventListener("click", () => {
         numeroAnterior = numeroAtual;
         operador = botao.textContent;
 
@@ -31,6 +31,31 @@ botoesOperadores.forEach((botao) => {
     })
 })
 
+function calcular() {
+    const primeiroNumero = parseFloat(numeroAnterior);
+    const segundoNumero = parseFloat(numeroAtual);
+
+    let resultado;
+
+    if(operador === "+") {
+        resultado = primeiroNumero + segundoNumero;
+        
+    }
+    if(operador === "-") {
+        resultado = primeiroNumero - segundoNumero;
+    }
+    if(operador === "x") {
+        resultado = primeiroNumero * segundoNumero;
+    }
+    if(operador === "÷") {
+        resultado = primeiroNumero / segundoNumero;
+    }
+
+    display.value = resultado;
+
+}
+
+botaoIgual.addEventListener("click", calcular);
 
 
 
